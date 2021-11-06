@@ -1,0 +1,25 @@
+CREATE TABLE IF NOT EXISTS book(
+    book_id INT NOT NULL AUTO_INCREMENT,
+    book_name VARCHAR(25) NOT NULL,
+    book_category VARCHAR(20),
+    book_synopsis VARCHAR(255),
+    last_update TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY(book_id))ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE IF NOT EXISTS author(
+    author_id INT NOT NULL AUTO_INCREMENT,
+    author_name VARCHAR(25) NOT NULL,
+    author_type VARCHAR(45),
+    last_update TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY(author_id))ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE IF NOT EXISTS user(
+    user_id INT NOT NULL AUTO_INCREMENT,
+    user_name VARCHAR(25) NOT NULL,
+    user_email VARCHAR(25),
+    book_id INT NOT NULL,
+    author_id INT NOT NULL,
+    last_update TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY(user_id),
+    FOREIGN KEY(author_id) REFERENCES author(author_id),
+    FOREIGN KEY(book_id) REFERENCES book(book_id))ENGINE=InnoDB DEFAULT CHARSET=utf8;

@@ -1,0 +1,6 @@
+/target
+BlinkistApp.iml
+.idea
+app.log.*
+app.log
+BlinkistApplication/

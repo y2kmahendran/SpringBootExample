@@ -15,7 +15,6 @@ public class BlinkistApplication {
 
         SpringApplication.run(BlinkistApplication.class, args);
     }
-
     @Bean
     public ModelMapper modelMapper(){
         return new ModelMapper();
